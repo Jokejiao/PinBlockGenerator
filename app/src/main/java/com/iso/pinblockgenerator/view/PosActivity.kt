@@ -2,16 +2,18 @@ package com.iso.pinblockgenerator.view
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.iso.pinblockgenerator.R
-import kotlin.experimental.or
-import kotlin.experimental.xor
+import com.iso.pinblockgenerator.viewmodel.PosViewModel
 
 class PosActivity : AppCompatActivity() {
+
+    private val viewModel: PosViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,9 +22,9 @@ class PosActivity : AppCompatActivity() {
     }
 
     /**
-     * Hide the status bar to create the immersive UX
+     * Hide the system UI to build the immersive UX of POS
      */
-    private fun hideSystemUI() =  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+    private fun hideSystemUI() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         window.setDecorFitsSystemWindows(false)
         window.insetsController?.let {
             it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())

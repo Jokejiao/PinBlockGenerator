@@ -1,4 +1,6 @@
 package com.iso.pinblockgenerator.viewmodel
 
-class PosViewModel {
+import androidx.lifecycle.ViewModel
+
+class PosViewModel : ViewModel() {
 }

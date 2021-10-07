@@ -1,9 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.PosActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.iso.pinblockgenerator.viewmodel.PosViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/antique_white"
+        tools:context=".view.PosActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <View
+            android:id="@+id/led_display"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/avocado"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pin_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pin"
+            android:layout_margin="@dimen/normal_margin"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintLeft_toLeftOf="@id/led_display"
+            app:layout_constraintRight_toRightOf="@id/led_display"
+            app:layout_constraintBottom_toTopOf="@id/pan_textview"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pan_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pan"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintLeft_toLeftOf="@id/pin_edittext"
+            app:layout_constraintBottom_toTopOf="@id/pin_block_textview"
+            app:layout_constraintTop_toBottomOf="@id/pin_edittext" />
+
+        <TextView
+            android:id="@+id/pin_block_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/pin_block"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintLeft_toLeftOf="@id/pan_textview"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/pan_textview" />
+
+        <TextView
+            android:id="@+id/prompt_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/prompt_text_size"
+            android:textColor="@color/candy_apple_red"
+            android:text="@string/pin_prompt"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/pin_edittext"
+            app:layout_constraintRight_toRightOf="@id/led_display" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

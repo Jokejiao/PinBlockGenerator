@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">PinBlockGenerator</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="pin">PIN:</string>
+    <string name="pan">PAN: </string>
+    <string name="pin_block">PIN BLOCK: </string>
+    <string name="pin_prompt">The PIN should be 4-12 digits</string>
 </resources>
