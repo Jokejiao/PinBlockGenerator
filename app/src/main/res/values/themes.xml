@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Top level DayNight theme to be used in AndroidManifest.xml-->
+    <style name="Theme.Iso" parent="Base.Theme.Iso" />
+
+    <!--Base custom theme which will be shared between both light and dark theme variants-->
+    <style name="Base.Theme.Iso" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    </style>
+</resources>
