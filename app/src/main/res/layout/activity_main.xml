@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="android.view.View"/>
         <variable
-            name="viewModel"
+            name="viewmodel"
             type="com.iso.pinblockgenerator.viewmodel.PosViewModel" />
     </data>
 
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.25" />
+            app:layout_constraintGuide_percent="0.3" />
 
         <View
             android:id="@+id/led_display"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/pin_edittext"
+            android:id="@+id/pin_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/normal_margin"
@@ -52,8 +52,8 @@
             android:text="@string/pan"
             android:textSize="@dimen/text_size"
             app:layout_constraintBottom_toTopOf="@id/pin_block_textview"
-            app:layout_constraintLeft_toLeftOf="@id/pin_edittext"
-            app:layout_constraintTop_toBottomOf="@id/pin_edittext" />
+            app:layout_constraintLeft_toLeftOf="@id/pin_textview"
+            app:layout_constraintTop_toBottomOf="@id/pin_textview" />
 
         <TextView
             android:id="@+id/pin_block_textview"
@@ -75,7 +75,7 @@
             android:textSize="@dimen/prompt_text_size"
             android:visibility="gone"
             app:layout_constraintRight_toRightOf="@id/led_display"
-            app:layout_constraintTop_toBottomOf="@id/pin_edittext"
+            app:layout_constraintTop_toBottomOf="@id/pin_textview"
             tools:visibility="visible" />
 
         <Button
@@ -84,6 +84,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_1"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('1')}"
             app:layout_constraintBottom_toTopOf="@+id/button_4"
             app:layout_constraintEnd_toStartOf="@+id/button_2"
             app:layout_constraintHorizontal_bias="0.5"
@@ -96,6 +97,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_2"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('2')}"
             app:layout_constraintEnd_toStartOf="@+id/button_3"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button_1"
@@ -107,6 +109,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_3"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('3')}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button_2"
@@ -118,6 +121,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_4"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('4')}"
             app:layout_constraintBottom_toTopOf="@+id/button_7"
             app:layout_constraintEnd_toStartOf="@+id/button_5"
             app:layout_constraintHorizontal_bias="0.5"
@@ -130,6 +134,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_5"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('5')}"
             app:layout_constraintEnd_toStartOf="@+id/button_6"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button_4"
@@ -141,6 +146,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_6"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('6')}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button_5"
@@ -152,6 +158,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_7"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('7')}"
             app:layout_constraintBottom_toTopOf="@+id/button_clear"
             app:layout_constraintEnd_toStartOf="@+id/button_8"
             app:layout_constraintHorizontal_bias="0.5"
@@ -164,6 +171,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_8"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('8')}"
             app:layout_constraintEnd_toStartOf="@+id/button_9"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button_7"
@@ -175,6 +183,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_9"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('9')}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button_8"
@@ -186,6 +195,7 @@
             android:layout_height="wrap_content"
             android:text="@string/number_0"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clickDigit('0')}"
             app:layout_constraintEnd_toStartOf="@+id/button_ok"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button_clear"
@@ -197,6 +207,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ok"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.calculatePinBlock()}"
             android:backgroundTint="@color/bright_green"
             android:textColor="@color/black_coffee"
             app:layout_constraintEnd_toEndOf="parent"
@@ -210,6 +221,7 @@
             android:layout_height="wrap_content"
             android:text="@string/clear"
             style="@style/Pos_Button"
+            android:onClick="@{() -> viewmodel.clearDigit()}"
             android:textSize="14sp"
             android:backgroundTint="@color/aureolin"
             android:textColor="@color/black_coffee"

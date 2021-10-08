@@ -8,6 +8,10 @@ plugins {
 android {
     compileSdk rootProject.compileSdkVersion
 
+    buildFeatures {
+        dataBinding true
+    }
+
     defaultConfig {
         applicationId "com.iso.pinblockgenerator"
         minSdk rootProject.minSdkVersion
@@ -24,17 +28,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-
-    dataBinding {
-        enabled = true
-        enabledForTests = true
     }
 }
 
@@ -47,6 +48,8 @@ dependencies {
     implementation "androidx.activity:activity-ktx:$activityVersion"
     implementation "com.google.android.material:material:$materialVersion"
     implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     annotationProcessor "com.google.dagger:hilt-compiler:$hiltVersion"

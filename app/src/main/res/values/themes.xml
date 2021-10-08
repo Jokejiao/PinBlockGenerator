@@ -5,7 +5,12 @@
     <style name="Theme.Iso" parent="Base.Theme.Iso" />
 
     <!--Base custom theme which will be shared between both light and dark theme variants-->
+<!--    <style name="Base.Theme.Iso" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
     <style name="Base.Theme.Iso" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>

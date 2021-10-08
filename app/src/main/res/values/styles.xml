@@ -1,7 +1,7 @@
 <resources>
     <style name="Pos_Button" parent="Widget.MaterialComponents.Button">
-        <item name="android:minWidth">80dp</item>
-        <item name="android:minHeight">64dp</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:minHeight">80dp</item>
         <item name="android:backgroundTint">@color/black_coffee</item>
         <item name="android:textColor">@color/alice_blue</item>
         <item name="android:textSize">18sp</item>
