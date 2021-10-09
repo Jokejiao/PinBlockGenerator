@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iso.pinblockgenerator.domain.PinBlockUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,6 +16,9 @@ class PosViewModel @Inject constructor(
 
     private val _pinLiveData = MutableLiveData("")
     var pinLiveData: LiveData<String> = _pinLiveData
+
+    private val _pinBlockLiveData = MutableLiveData("")
+    var pinBlockLiveData: LiveData<String> = _pinBlockLiveData
 
     private val _invalidPinPrompt = MutableLiveData<Boolean>()
     val invalidPinPrompt: LiveData<Boolean> = _invalidPinPrompt
@@ -45,7 +47,7 @@ class PosViewModel @Inject constructor(
 
         viewModelScope.launch {
             _pinLiveData.value?.let {
-                pinBlockUseCase.invoke(it)
+                _pinBlockLiveData.value = pinBlockUseCase(it)
             }
         }
     }

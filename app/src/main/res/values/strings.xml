@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PinBlockGenerator</string>
     <string name="pin">PIN: %1$s</string>
-    <string name="pan">PAN: </string>
-    <string name="pin_block">PIN BLOCK: </string>
+    <string name="pan">PAN: 1111222233334444</string>
+    <string name="pin_block">PIN BLOCK: %1$s</string>
     <string name="pin_prompt">The PIN should be 4-12 digits</string>
     <string name="number_0">0</string>
     <string name="number_1">1</string>

@@ -17,6 +17,10 @@ import com.iso.pinblockgenerator.databinding.ActivityMainBinding
 import com.iso.pinblockgenerator.viewmodel.PosViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * This screen imitates a POS UI
+ * Serve as a sheer container of UI elements, so that keeps it as dumb as possible
+ */
 @AndroidEntryPoint
 class PosActivity : AppCompatActivity() {
 
@@ -35,13 +39,16 @@ class PosActivity : AppCompatActivity() {
 
     private fun setupKeypad() {
         viewModel.pinLiveData.observe(this) {
-            binding.pinTextview.apply {
-                text = getString(R.string.pin, it)
-            }
+            binding.pinTextview.text = getString(R.string.pin, it)
+            binding.pinBlockTextview.text = getString(R.string.pin_block, "")
         }
 
         viewModel.invalidPinPrompt.observe(this) {
             binding.promptTextview.visibility = if (it) View.VISIBLE else View.GONE
+        }
+
+        viewModel.pinBlockLiveData.observe(this) {
+            binding.pinBlockTextview.text = getString(R.string.pin_block, it)
         }
     }
 
