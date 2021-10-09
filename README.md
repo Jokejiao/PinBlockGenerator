@@ -13,6 +13,7 @@
    examples and calculator.
 6. A local unit test case is available to test the algorithm.
 
-Note that the reference doc mistakenly states the random fill is "10" to "15". As per
-http://icma.com/wp-content/uploads/2015/07/PinBlockFormats_SE1-15CM.pdf, it should be "0" to "15"
-(0x0 - 0xF)
+Note that the reference doc ambiguously states the random fill is either "10" to "15" or 
+X'0' to X'F'. As per http://icma.com/wp-content/uploads/2015/07/PinBlockFormats_SE1-15CM.pdf, 
+it should be "0" to "15" (0x0 - 0xF), while some other docs say 0xA - 0xF. The app is using
+0x0 - 0xF.
