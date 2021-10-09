@@ -4,9 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
-import android.view.ViewTreeObserver
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.activity.viewModels
@@ -34,10 +32,10 @@ class PosActivity : AppCompatActivity() {
         binding.viewmodel = viewModel
 
         hideSystemUI()
-        setupKeypad()
+        setupPos()
     }
 
-    private fun setupKeypad() {
+    private fun setupPos() {
         viewModel.pinLiveData.observe(this) {
             binding.pinTextview.text = getString(R.string.pin, it)
             binding.pinBlockTextview.text = getString(R.string.pin_block, "")

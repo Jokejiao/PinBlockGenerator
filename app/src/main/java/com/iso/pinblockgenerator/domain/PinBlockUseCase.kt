@@ -2,15 +2,21 @@ package com.iso.pinblockgenerator.domain
 
 import com.iso.pinblockgenerator.setHiNibbleValue
 import com.iso.pinblockgenerator.setLowNibbleValue
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import kotlin.experimental.or
 import kotlin.experimental.xor
 
-class PinBlockUseCase @Inject constructor() {
+/**
+ * The use case of converting a PIN to the PIN BLOCK
+ * The PAN (Primary account number) is hardcoded for simplicity
+ */
+class PinBlockUseCase @Inject constructor(
+    private val defaultDispatcher: CoroutineDispatcher
+) {
 
-    suspend operator fun invoke(pin: String): String = withContext(Dispatchers.Default) {
+    suspend operator fun invoke(pin: String): String = withContext(defaultDispatcher) {
         val pinNibbles = convertPinToNibbles(pin)
         val panNibbles = convertPanToNibbles()
 
@@ -79,16 +85,13 @@ class PinBlockUseCase @Inject constructor() {
 
     private fun randomFill() = (RANDOM_MIN..RANDOM_MAX).random().toByte()
 
-
     companion object {
         private const val BYTE_COUNT = 8
 
         private const val ISO_3: Byte = 3
         private const val NIBBLE_COUNT_PER_BYTE = 2
 
-//        private const val PAN = "1111222233334444"
-        private const val PAN = "43219876543210987"
-//        private const val PAN = "4234234456789012345"
+        private const val PAN = "1111222233334444"
 
         private const val PAN_CHECK_BIT_LEN = 1
         private const val PAN_RIGHT_MOST_COUNT = 12
