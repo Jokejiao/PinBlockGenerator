@@ -2,8 +2,8 @@
 
 1. The UI emulates a physical POS.
 2. The app architecture is MVVM + CLEAN. Dagger-hilt is applied for Dependency Injection. 
-3. The View layer (PosActivity) is dumb, it just serves as
-   a container of UI elements. The PosViewModel instructs it to react.
+3. The dumb view layer (PosActivity) serves as a container of UI elements.
+   It updates the UI elements by observing the view data variations in the PosViewModel.
 4. The PAN is advised to be hardcoded as "1111222233334444". 
    As per https://www.investopedia.com/terms/p/primary-account-number-pan.asp and
    https://www.eftlab.com/knowledge-base/261-complete-list-of-pin-blocks-in-payments,

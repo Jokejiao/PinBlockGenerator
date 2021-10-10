@@ -16,7 +16,7 @@ import com.iso.pinblockgenerator.viewmodel.PosViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
- * This screen imitates a POS UI
+ * This screen emulates a POS UI
  * Serve as a sheer container of UI elements, so that keeps it as dumb as possible
  */
 @AndroidEntryPoint
